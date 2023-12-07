@@ -28,8 +28,7 @@ class tool:
 CLI.mainmenu()
 pad_naar_event = IVSD_3000.pad + IVSD_3000.folder + IVSD_3000.bundelSoort + "/" + IVSD_3000.event
 print(menu)
-if menu == str(1):
-    CLI.kies_pad(IVSD_3000.pad + IVSD_3000.folder + IVSD_3000.bundelSoort + "/" + IVSD_3000.event +"/Render Files")
-    tool.delete(PD)
-    tool.delete(HQM)
-    tool.delete(TM)
+tool.make_paths(pad_naar_event)
+tool.delete(PD)
+tool.delete(HQM)
+tool.delete(TM)
