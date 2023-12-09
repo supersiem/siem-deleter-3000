@@ -29,6 +29,24 @@ CLI.mainmenu()
 pad_naar_event = IVSD_3000.pad + IVSD_3000.folder + IVSD_3000.bundelSoort + "/" + IVSD_3000.event
 print(menu)
 tool.make_paths(pad_naar_event)
-tool.delete(PD)
-tool.delete(HQM)
-tool.delete(TM)
+try:
+    tool.get_files(pad_naar_event)
+except:
+    print("404")
+    print("kon event niet vinden")
+    exit()
+
+try:
+    if IVSD_3000.Peaks_Data:
+        tool.delete(PD)
+    if IVSD_3000.High_Quality_Media:
+        tool.delete(HQM)
+    if IVSD_3000.Thumbnail_Media:
+        tool.delete(TM)
+except:
+    print("404")
+    print("niks om weg te haalen")
+    exit()
+
+
+exit()
