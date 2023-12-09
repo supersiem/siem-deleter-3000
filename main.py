@@ -3,9 +3,9 @@ import shutil
 import instelingen_voor_siem_deleter_3000 as IVSD_3000
 class CLI:
     def mainmenu():
-        print("1:verwijder renderring files")
+
         global menu
-        menu = str(input("maak een keuzen "))
+        menu = str(1)
     def kies_pad(auto):
         global pad
         pad = input("wat is je pad (doe niks voor auto) ")
@@ -26,11 +26,10 @@ class tool:
         TM  = pad + "/Thumbnail Media"
 
 CLI.mainmenu()
-pad_naar_event = IVSD_3000.pad + IVSD_3000.folder + IVSD_3000.bundelSoort + "/" + IVSD_3000.event
-print(menu)
-tool.make_paths(pad_naar_event)
+
+tool.make_paths(IVSD_3000.auto.PAD)
 try:
-    tool.get_files(pad_naar_event)
+    tool.get_files(IVSD_3000.auto.PAD)
 except:
     print("404")
     print("kon event niet vinden")
